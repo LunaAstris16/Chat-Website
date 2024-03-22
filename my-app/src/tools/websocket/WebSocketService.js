@@ -1,39 +1,49 @@
 // WebSocketService.js
 
 class WebSocketService {
-    constructor() {
-      this.socket = new WebSocket("ws://localhost:8700");
-      this.socket.onopen = this.onOpen;
-      this.socket.onmessage = this.onMessage;
-      this.socket.onclose = this.onClose;
-      this.socket.onerror = this.onError;
-    }
-  
-    onOpen = () => {
-      console.log("WebSocket connection established.");
+  constructor() {
+    this.socket = null;
+    this.messagesCallback = null;
+  }
+
+  connect(messagesCallback) {
+    this.socket = new WebSocket('ws://localhost:8700');
+
+    this.socket.onopen = () => {
+      console.log('WebSocket connection established.');
     };
-  
-    onMessage = (event) => {
-      console.log("Received message:", event.data);
-      // Handle incoming messages here
+
+    this.socket.onmessage = (event) => {
+      const newMessage = event.data;
+      if (this.messagesCallback) {
+        this.messagesCallback(newMessage);
+      }
     };
-  
-    onClose = () => {
-      console.log("WebSocket connection closed.");
+
+    this.socket.onclose = () => {
+      console.log('WebSocket connection closed.');
     };
-  
-    onError = (error) => {
-      console.error("WebSocket error:", error);
+
+    this.socket.onerror = (error) => {
+      console.error('WebSocket error:', error);
     };
-  
-    sendMessage(message) {
+
+    this.messagesCallback = messagesCallback;
+  }
+
+  sendMessage(message) {
+    if (this.socket && this.socket.readyState === WebSocket.OPEN) {
       this.socket.send(message);
+    } else {
+      console.error('WebSocket is not connected.');
     }
-  
-    closeConnection() {
+  }
+
+  disconnect() {
+    if (this.socket) {
       this.socket.close();
     }
   }
-  
-  export default WebSocketService;
-  
+}
+
+export default WebSocketService;

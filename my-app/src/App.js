@@ -1,8 +1,11 @@
 //import React from 'react';
-import "./button.css";
-import React, { useState, useEffect } from 'react';
-import WebSocketService from "./tools/websocket/WebSocketService";
+//import "./button.css";
+//TODO - import React, { useState, useEffect } from 'react';
+//import WebSocketService from "./tools/websocket/WebSocketService";
 
+import Chat from "./src/component/main_page/chat/chat";
+
+/*
 const WebSocketComponent = () => {
   const [message, setMessage] = useState("");
   const [webSocketService, setWebSocketService] = useState(null);
@@ -83,15 +86,14 @@ function Test_Form(props){
     </div>
   );
 }
-
+*/
 // Usage of the functional component
 function App() {
+
   return (
     <div>
-      <MyComponent name="Timothy" />
-      <Test_Button name="Hello" />
-      <Test_Form/>
-      <WebSocketComponent/>
+      <h1>WebSocket Chat App</h1>
+      <Chat />
     </div>
   );
 }
