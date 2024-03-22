@@ -30,7 +30,7 @@ async def handle_websocket(websocket, path):
         connected_clients.remove(websocket)
 
 # Create a WebSocket server
-start_server = websockets.serve(handle_websocket, "localhost", 8700)
+start_server = websockets.serve(handle_websocket, '0.0.0.0', 8700)
 
 # Run the server indefinitely
 asyncio.get_event_loop().run_until_complete(start_server)

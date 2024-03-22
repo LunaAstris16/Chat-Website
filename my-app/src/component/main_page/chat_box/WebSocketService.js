@@ -7,7 +7,7 @@ class WebSocketService {
   }
 
   connect(messagesCallback) {
-    this.socket = new WebSocket('ws://localhost:8700');
+    this.socket = new WebSocket('ws://0.0.0.0:8700');
 
     this.socket.onopen = () => {
       console.log('WebSocket connection established.');

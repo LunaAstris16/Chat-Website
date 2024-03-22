@@ -3,7 +3,8 @@
 //TODO - import React, { useState, useEffect } from 'react';
 //import WebSocketService from "./tools/websocket/WebSocketService";
 
-import Chat from "./src/component/main_page/chat/chat";
+import React from "react";
+import Chat from './component/main_page/chat_box/chat';
 
 /*
 const WebSocketComponent = () => {
@@ -88,7 +89,7 @@ function Test_Form(props){
 }
 */
 // Usage of the functional component
-function App() {
+const App = () => {
 
   return (
     <div>
@@ -96,47 +97,9 @@ function App() {
       <Chat />
     </div>
   );
-}
+};
 
 export default App;
 
-//export default function MyApp() {
-//  const [count, setCount] = useState(0);
-//
-// function handleClick() {
-//   setCount(count + 1);
-// }
-//
-// return (
-//   <div>
-//     <h1>Counters that update together</h1>
-//     <MyButton_together count={count} onClick={handleClick} />
-//     <MyButton_together count={count} onClick={handleClick} />
-//     <MyButton_seperate count={count} onClick={handleClick} />
-//     <MyButton_seperate count={count} onClick={handleClick} />
-//     <Header_Text/>
-//   </div>
-// );
-//
 
-//function MyButton_together({ count, onClick }) {
-//  return (
-//    <button className="button" onClick={onClick}>
-//      Clicked {count} times
-//    </button>
-//  );
-//}
-//
-//function MyButton_seperate() {
-//  const [count, setCount] = useState(0);
-//
-//  function handleClick() {
-//    setCount(count + 1);
-//  }
-//
-//  return (
-//    <button className="button" onClick={handleClick}>
-//      Clicked {count} times
-//    </button>
-//  );
-//}
+
