@@ -5,6 +5,8 @@
 
 import React from "react";
 import Chat from './component/main_page/chat_box/chat';
+import Heading from './component/main_page/heading/heading';
+import './App.css'
 
 /*
 const WebSocketComponent = () => {
@@ -93,7 +95,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>WebSocket Chat App</h1>
+      <Heading />
       <Chat />
     </div>
   );

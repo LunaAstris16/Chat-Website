@@ -1,0 +1,15 @@
+div{
+    position: relative;
+}
+h1 {
+    background-color: black;
+    color: antiquewhite;
+    padding: 1%;
+    display: inline-block;
+}
+h3 {
+    display: inline-block;
+    padding-left: 55%;
+    background-color:black;
+    color: antiquewhite;
+}
